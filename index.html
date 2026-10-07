@@ -77,7 +77,7 @@ h2{font-family:var(--display);font-weight:600;font-size:clamp(34px,5vw,48px);lin
 .svc{background:var(--surface2);border-radius:32px;padding:72px 56px;position:relative;overflow:hidden;display:grid;grid-template-columns:340px minmax(0,1fr);gap:56px;align-items:center}
 .blob{position:absolute;width:520px;height:520px;border-radius:50%;background:var(--brand);opacity:.28;filter:blur(130px);right:-60px;top:-40px;pointer-events:none}
 .blob.b2{background:#34D399;opacity:.18;left:-120px;right:auto;top:auto;bottom:-160px}
-.svc>*{position:relative}
+.svc>:not(.blob){position:relative}
 .lead{display:grid;gap:18px;justify-items:start}
 .lead p{color:var(--muted);font-size:18px}
 .bento{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-rows:84px;gap:20px}
@@ -174,9 +174,9 @@ html{scroll-behavior:smooth}
 .edu{background:var(--surface2);border-radius:32px;padding:72px 56px;display:grid;grid-template-columns:340px minmax(0,1fr);gap:56px;align-items:center;position:relative;overflow:hidden}
 .edu .lead{display:grid;gap:14px;justify-items:start}
 .edu .lead p{color:var(--muted);font-size:18px}
-.ecards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;padding-bottom:40px}
+.ecards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;padding-bottom:0}
 .ecard{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:24px;box-shadow:0 8px 24px var(--shadow);display:grid;gap:14px;align-content:start;transition:transform .25s,box-shadow .25s}
-.ecard:nth-child(even){margin-top:40px;margin-bottom:-40px}
+
 .ecard:hover{transform:translateY(-4px);box-shadow:0 14px 32px var(--shadow2)}
 .ecard .ic{width:44px;height:44px}
 .ecard h3{font-size:18px;font-weight:600;line-height:1.25}
@@ -218,7 +218,7 @@ form .btn{justify-self:start;margin:0}
 }
 @media (max-width:640px){
   .ecards{grid-template-columns:1fr;padding-bottom:0}
-  .ecard:nth-child(even){margin:0}
+  
   form{grid-template-columns:1fr}
   .stats b{font-size:26px}
 }
@@ -235,6 +235,111 @@ form .btn{justify-self:start;margin:0}
 .portrait.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 20%;display:block}
 .portrait.photo.sq{aspect-ratio:1}
 .portrait.photo.sq img{object-position:50% 30%}
+
+/* ===== Work samples ===== */
+:root{--c-meet:#9333EA;--c-focus:#112238;--c-travel:#B97B10;--c-meal:#BE4A66;--c-buf:#6B7385;--c-ok:#1E8E3E}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--c-meet:#C084FC;--c-focus:#8AA4DE;--c-travel:#E2A840;--c-meal:#E57C97;--c-buf:#9CA8BB;--c-ok:#4ADE80}}
+:root[data-theme="dark"]{--c-meet:#C084FC;--c-focus:#8AA4DE;--c-travel:#E2A840;--c-meal:#E57C97;--c-buf:#9CA8BB;--c-ok:#4ADE80}
+#samples{padding-top:0}
+.s-stack{display:grid;gap:28px}
+.s-card{background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:32px;box-shadow:0 8px 24px var(--shadow);display:grid;gap:24px;min-width:0}
+.s-top{display:grid;gap:10px}
+.s-top h3{font-size:28px;font-weight:600;line-height:1.2;text-wrap:balance}
+.s-top p{color:var(--muted);max-width:64ch;font-size:16.5px}
+.s-two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px}
+.s-sub{font-size:19px;font-weight:600;margin-bottom:12px}
+.s-fine{font-size:13.5px;color:var(--muted)}
+.s-ctl{display:flex;flex-wrap:wrap;gap:14px 24px;align-items:center;justify-content:space-between}
+.s-seg{display:inline-flex;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--surface2)}
+.s-seg button{border:0;background:transparent;color:var(--muted);font:600 15px var(--body);padding:10px 24px;cursor:pointer;transition:background .2s,color .2s}
+.s-seg button[aria-pressed="true"]{background:var(--brand);color:#fff}
+.s-leg{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:14px;color:var(--muted)}
+.s-leg span{display:inline-flex;align-items:center;gap:6px}
+.s-leg i{width:12px;height:12px;border-radius:3px;display:inline-block}
+.s-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:16px;background:var(--surface)}
+.s-cal{min-width:680px;display:grid;grid-template-columns:56px repeat(5,minmax(0,1fr))}
+.s-ch{padding:10px 0;text-align:center;font-weight:600;font-size:14px;border-bottom:1px solid var(--line)}
+.s-hours{position:relative;height:480px}
+.s-hours span{position:absolute;right:8px;font-size:12px;color:var(--muted);transform:translateY(-8px)}
+.s-day{position:relative;height:480px;border-left:1px solid var(--line);background-image:linear-gradient(var(--line) 1px,transparent 1px);background-size:100% 48px}
+.s-ev{position:absolute;padding:3px 7px;border-radius:6px;font-size:12.5px;line-height:1.25;overflow:hidden;border-left:3px solid var(--c);background:color-mix(in srgb,var(--c) 16%,var(--surface));color:var(--ink);transition:opacity .25s ease}
+.s-ev b{display:block;font-weight:600;white-space:nowrap;text-overflow:ellipsis;overflow:hidden}
+.s-ev small{color:var(--muted);font-size:11.5px}
+.s-ev.meeting{--c:var(--c-meet)}
+.s-ev.focus{--c:var(--c-focus);background:color-mix(in srgb,var(--c-focus) 22%,var(--surface))}
+.s-ev.travel{--c:var(--c-travel)}
+.s-ev.social{--c:var(--c-meal)}
+.s-ev.buffer{--c:var(--c-buf);background:repeating-linear-gradient(45deg,transparent 0 5px,color-mix(in srgb,var(--c-buf) 25%,transparent) 5px 6px)}
+.s-cal.fading .s-ev{opacity:0}
+.s-result{font-size:16px;padding:14px 18px;border-radius:14px;background:var(--soft)}
+.s-result strong{font-weight:600}
+.s-list{margin:0;padding-left:20px;display:grid;gap:8px;color:var(--muted)}
+.s-steps{list-style:none;margin:0;padding:0;counter-reset:s;display:grid;gap:14px}
+.s-steps li{counter-increment:s;display:grid;grid-template-columns:32px minmax(0,1fr);gap:12px;align-items:start}
+.s-steps li::before{content:counter(s);width:32px;height:32px;border-radius:50%;background:var(--brand);color:#fff;display:grid;place-items:center;font-weight:600;font-size:15px}
+.s-steps b{font-weight:600}
+.s-labels{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.s-labels span{border:1px solid var(--line);border-left:4px solid var(--c);border-radius:8px;padding:4px 12px;font-size:14px;background:var(--surface2)}
+.s-det{border-bottom:1px solid var(--line)}
+.s-det:first-of-type{border-top:1px solid var(--line)}
+.s-det summary{cursor:pointer;padding:14px 0;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:12px}
+.s-det summary::-webkit-details-marker{display:none}
+.s-det summary::after{content:"+";font-size:22px;line-height:1;color:var(--accent);transition:transform .2s ease}
+.s-det[open] summary::after{transform:rotate(45deg)}
+.s-tpl{background:var(--surface2);border-radius:12px;padding:14px 16px;margin:0 0 16px;font-size:15px;white-space:pre-wrap;color:var(--muted)}
+.s-time{margin:0;padding:0;list-style:none;border-left:2px solid var(--line)}
+.s-time li{position:relative;padding:0 0 20px 24px}
+.s-time li:last-child{padding-bottom:0}
+.s-time li::before{content:"";position:absolute;left:-7px;top:7px;width:12px;height:12px;border-radius:50%;background:var(--brand)}
+.s-time time{display:block;font-weight:600;font-size:14px;color:var(--accent)}
+.s-sop{background:linear-gradient(145deg,var(--soft),var(--surface) 80%);border:1px solid var(--line);border-radius:18px;padding:24px;display:grid;gap:16px;align-content:start}
+.s-meta{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:14px;color:var(--muted)}
+.s-meta b{color:var(--ink);font-weight:600}
+.s-board{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.s-col{background:var(--surface2);border-radius:18px;padding:16px;display:grid;gap:12px;align-content:start}
+.s-col h4{margin:0;font-size:14px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);display:flex;justify-content:space-between}
+.s-task{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--c);border-radius:12px;padding:12px 14px;font-size:15px;line-height:1.4}
+.s-task small{display:block;color:var(--muted);font-size:12.5px;margin-top:4px}
+.s-tbl{overflow-x:auto}
+.s-tbl table{width:100%;border-collapse:collapse;font-size:15px;min-width:460px}
+.s-tbl th,.s-tbl td{text-align:left;padding:12px 14px 12px 0;border-bottom:1px solid var(--line);vertical-align:top}
+.s-tbl th{font-weight:600;color:var(--muted);width:150px;font-size:14px}
+.s-flag{border-left:4px solid var(--c-meal);background:color-mix(in srgb,var(--c-meal) 10%,var(--surface));padding:18px 20px;border-radius:0 14px 14px 0;align-self:start}
+.s-flag h4{margin:0 0 8px;font-size:17px;font-weight:600}
+.s-flag ul{margin:0;padding-left:18px;display:grid;gap:6px;color:var(--muted);font-size:15px}
+@media (max-width:900px){.s-two{grid-template-columns:1fr}.s-card{padding:24px 20px}}
+@media (max-width:760px){.s-board{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.s-ev,.s-det summary::after,.s-seg button{transition:none}}
+
+.s-ev.call{--c:var(--c-meet)}.s-ev.msg{--c:var(--c-travel)}.s-ev.mail{--c:var(--c-focus)}
+button.s-ev{font:inherit;font-size:12.5px;text-align:left;cursor:pointer;border:0;border-left:3px solid var(--c);width:calc(100% - 8px);left:4px;margin:0}
+button.s-ev:hover{background:color-mix(in srgb,var(--c) 26%,var(--surface))}
+button.s-ev[aria-pressed="true"]{box-shadow:0 0 0 2px var(--c);z-index:1}
+button.s-ev:focus-visible{outline:3px solid var(--accent);outline-offset:1px}
+.s-flow{list-style:none;margin:0;padding:0;counter-reset:f;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.s-flow li{counter-increment:f;background:var(--surface2);border-radius:16px;padding:16px 18px;display:grid;gap:6px;align-content:start}
+.s-flow li::before{content:counter(f);width:28px;height:28px;border-radius:50%;background:var(--brand);color:#fff;display:grid;place-items:center;font-weight:600;font-size:14px;margin-bottom:4px}
+.s-flow b{font-weight:600}
+.s-flow span{color:var(--muted);font-size:15px}
+.s-detail{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:20px 32px;background:linear-gradient(145deg,var(--soft),var(--surface) 80%);border:1px solid var(--line);border-radius:18px;padding:22px 24px}
+.s-detail h4{margin:4px 0 4px;font-size:22px;font-weight:600}
+.s-detail p{margin:0}
+.s-rem{list-style:none;margin:8px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.s-rem li{display:inline-flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--line);border-radius:99px;padding:6px 14px;font-size:14.5px}
+.s-rem svg{width:16px;height:16px;color:var(--accent)}
+.s-hint{display:none;margin:-12px 0 0}
+.s-ledger td.num,.s-ledger th:nth-child(3){text-align:right;font-variant-numeric:tabular-nums;padding-right:18px}
+.s-ledger th{width:auto}
+.s-chip{display:inline-flex;align-items:center;gap:7px;white-space:nowrap;font-size:13.5px;font-weight:500;padding:4px 12px;border-radius:99px;border:1px solid var(--line);background:var(--surface2)}
+.s-chip::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--cc)}
+.s-kv{display:grid;grid-template-columns:auto 1fr;gap:6px 18px;margin:0;font-size:15px}
+.s-kv dt{color:var(--muted)}.s-kv dd{margin:0;font-weight:500;text-align:right}
+@media (max-width:900px){.s-flow{grid-template-columns:repeat(2,minmax(0,1fr))}.s-detail{grid-template-columns:1fr}}
+@media (max-width:760px){.s-hint{display:block}}
+@media (max-width:520px){.s-flow{grid-template-columns:1fr}}
+
+.s-two.w15{grid-template-columns:minmax(0,1.5fr) minmax(0,1fr)}.s-two.w13{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr)}
+@media (max-width:900px){.s-two.w15,.s-two.w13{grid-template-columns:1fr}}
 </style>
 
 </head>
@@ -279,7 +384,7 @@ form .btn{justify-self:start;margin:0}
 
 <header class="nav"><div class="in">
   <a class="logo" href="#home"><i>G</i>Glouel</a>
-  <ul><li><a href="#home">Home</a></li><li><a href="#about">About</a></li><li><a href="#education">Education</a></li><li><a href="#experience">Experience</a></li><li><a href="#tools">Tools</a></li><li><a href="#services">Services</a></li></ul>
+  <ul><li><a href="#home">Home</a></li><li><a href="#about">About</a></li><li><a href="#education">Education</a></li><li><a href="#experience">Experience</a></li><li><a href="#samples">Samples</a></li><li><a href="#tools">Tools</a></li><li><a href="#services">Services</a></li></ul>
   <a class="btn" href="#contact">Contact</a>
 </div></header>
 <main class="wrap" id="top">
@@ -396,6 +501,153 @@ form .btn{justify-self:start;margin:0}
   </div>
 </section>
 
+<section id="samples" style="padding-top:0">
+  <div class="head rv"><span class="eyebrow">Work samples</span><h2>How I work</h2><p>Examples of the executive support, bookkeeping, tracking and document work I do.</p></div>
+  <div class="s-stack">
+
+    <article class="s-card rv">
+      <div class="s-top"><span class="eyebrow">Calendar management</span><h3>How I run my client&rsquo;s calendar</h3><p>I set up my client&rsquo;s calendar and add every event as he tells me, by call, text or email. Then I set reminders so nothing is missed. Select any event to see where it came from and which reminders I set.</p></div>
+      <ol class="s-flow">
+        <li><b>He tells me.</b><span>By call, text or email, as plans come up.</span></li>
+        <li><b>I add it.</b><span>Title, time, time zone, and the link or address.</span></li>
+        <li><b>I set reminders.</b><span>Alerts ahead of each event for him and for me.</span></li>
+        <li><b>I check the week.</b><span>Look ahead for clashes and send him what is coming up.</span></li>
+      </ol>
+      <div class="s-leg" aria-label="Legend"><span><i style="background:var(--c-meet)"></i>Added from a call</span><span><i style="background:var(--c-travel)"></i>Added from a text</span><span><i style="background:var(--c-focus)"></i>Added from an email</span></div>
+      <div class="s-scroll"><div class="s-cal" id="sCal"></div></div>
+      <p class="s-fine s-hint">Swipe sideways to see the full week.</p>
+      <div class="s-detail" id="sDetail" aria-live="polite">
+        <div><span class="s-fine">Selected event</span><h4 id="sdTitle"></h4><p id="sdTime"></p><p class="s-fine" id="sdAdded"></p></div>
+        <div><span class="s-fine">Reminders I set</span><ul class="s-rem" id="sdRem"></ul></div>
+      </div>
+      <p class="s-fine">Tools: Google Workspace and Microsoft Office for calendars and email, and Trello, Asana or Monday.com to track follow-ups.</p>
+    </article>
+
+    <article class="s-card rv">
+      <div class="s-top"><span class="eyebrow">Email and correspondence</span><h3>An inbox where nothing important waits</h3><p>My goal is an inbox where nothing important waits and nothing unimportant interrupts.</p></div>
+      <div class="s-two">
+        <div>
+          <h4 class="s-sub">My triage routine</h4>
+          <ol class="s-steps">
+            <li><div><b>Scan.</b> Open the inbox at set times, such as 8:30, 12:00 and 16:00, instead of all day.</div></li>
+            <li><div><b>Decide.</b> Each message gets one outcome: do it now (under two minutes), delegate, schedule, or delete.</div></li>
+            <li><div><b>Label.</b> Anything that stays gets a label so nothing is lost.</div></li>
+            <li><div><b>Close.</b> Send the executive a short daily summary of what needs their attention.</div></li>
+          </ol>
+          <h4 class="s-sub" style="margin-top:24px">Label system</h4>
+          <div class="s-labels"><span style="--c:var(--c-meal)">Urgent today</span><span style="--c:var(--c-travel)">Waiting on reply</span><span style="--c:var(--c-meet)">Needs executive</span><span style="--c:var(--c-focus)">Reference</span><span style="--c:var(--c-buf)">Newsletters</span></div>
+        </div>
+        <div>
+          <h4 class="s-sub">Email templates I use</h4>
+          <p class="s-fine" style="margin:0 0 10px">Select one to read it.</p>
+          <details class="s-det"><summary>Meeting request</summary><div class="s-tpl">Subject: Meeting request: Q4 vendor contracts, 30 minutes
+
+Hi Marcus,
+
+I'm writing on behalf of Daniel Brooks, who would like to meet about the Q4 vendor contracts. Would any of these times work for you?
+
+Tuesday 10:00
+Wednesday 14:00
+Thursday 09:30
+(all Pacific Time)
+
+I'll send the video link once you confirm.
+
+Thank you,
+Glouel Dee Estrella
+Executive Assistant</div></details>
+          <details class="s-det"><summary>Polite decline</summary><div class="s-tpl">Subject: Re: Supply Chain Summit invitation
+
+Hi Priya,
+
+Thank you for the invitation. Daniel is unable to attend because of a scheduling conflict. Would Tom Alvarez from our operations team be able to join in his place, or could we look at a date next month?
+
+Best regards,
+Glouel Dee Estrella
+Executive Assistant</div></details>
+          <details class="s-det"><summary>Follow-up with a deadline</summary><div class="s-tpl">Subject: Quick follow-up: Q4 vendor contracts
+
+Hi Marcus,
+
+Following up on the contract proposal from October 3. Daniel needs a decision by October 15 to keep the Q4 rollout on track. Could you confirm by then?
+
+If it's easier to talk it through, I can set up 15 minutes this week.
+
+Thank you,
+Glouel Dee Estrella
+Executive Assistant</div></details>
+        </div>
+      </div>
+    </article>
+
+    <article class="s-card rv">
+      <div class="s-top"><span class="eyebrow">SOPs and workflows</span><h3>Written down, so it runs the same way every week</h3><p>I write standard operating procedures and set weekly workflows so the routine work stays consistent and anyone can pick it up.</p></div>
+      <div class="s-two">
+        <div>
+          <h4 class="s-sub">A sample weekly workflow</h4>
+          <ol class="s-time">
+            <li><time>Monday</time><b>Plan.</b> Confirm priorities with the executive, check the calendar, and update the task board.</li>
+            <li><time>Tuesday and Wednesday</time><b>Run.</b> Work through open items, send follow-ups, and update Salesforce and trackers.</li>
+            <li><time>Thursday</time><b>Check.</b> Review the board, chase anything late, and flag what is at risk.</li>
+            <li><time>Friday</time><b>Close.</b> Send a short weekly summary and carry over what is still open.</li>
+          </ol>
+        </div>
+        <div class="s-sop">
+          <div><h4 class="s-sub" style="margin:0 0 8px">Sample SOP: logging a new lead in Salesforce</h4>
+          <div class="s-meta"><span><b>Owner:</b> Glouel Estrella</span><span><b>Purpose:</b> keep records accurate</span><span><b>When:</b> every new inquiry</span></div></div>
+          <ol class="s-steps">
+            <li><div>Confirm the name, company and contact details.</div></li>
+            <li><div>Search Salesforce for duplicates before creating a record.</div></li>
+            <li><div>Create the lead and fill every required field.</div></li>
+            <li><div>Log the first activity with the date and the next step.</div></li>
+            <li><div>Add a follow-up task due within two business days.</div></li>
+          </ol>
+        </div>
+      </div>
+    </article>
+
+    <article class="s-card rv">
+      <div class="s-top"><span class="eyebrow">Sales and project tracking</span><h3>Every open item has an owner and a next step</h3><p>A sample board for a sales team. I track progress in Trello or a similar tool and keep records in Salesforce and Excel to match.</p></div>
+      <div class="s-board">
+        <div class="s-col"><h4>To do <span>2</span></h4>
+          <div class="s-task" style="--c:var(--c-buf)">Draft partner agreement<small>Glouel &middot; due Thursday</small></div>
+          <div class="s-task" style="--c:var(--c-buf)">Update the Q4 pipeline report<small>Marcus Lee &middot; due next Monday</small></div></div>
+        <div class="s-col"><h4>In progress <span>2</span></h4>
+          <div class="s-task" style="--c:var(--c-travel)">Onboard Brightway Travel as a partner<small>Glouel &middot; waiting on signed form</small></div>
+          <div class="s-task" style="--c:var(--c-travel)">Follow up on the Apex Print quote<small>Priya Shah &middot; reminder set for Wednesday</small></div></div>
+        <div class="s-col"><h4>Done <span>2</span></h4>
+          <div class="s-task" style="--c:var(--c-meet)">Log last week's leads in Salesforce<small>Glouel &middot; completed Monday</small></div>
+          <div class="s-task" style="--c:var(--c-meet)">Send the weekly summary to Daniel<small>Glouel &middot; completed Friday</small></div></div>
+      </div>
+    </article>
+
+    <article class="s-card rv">
+      <div class="s-top"><span class="eyebrow">QuickBooks</span><h3>Invoices entered, expenses categorized, transactions checked</h3><p>I enter invoices, categorize expenses, and check each transaction so the books stay accurate and the client sees what needs attention.</p></div>
+      <p class="s-result"><strong>Week of October 5:</strong> 6 transactions checked, 4 categorized, 2 flagged for follow-up.</p>
+      <div class="s-two w15">
+        <div class="s-tbl"><table class="s-ledger">
+          <thead><tr><th>Date</th><th>Vendor</th><th>Amount</th><th>Category</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td>Oct 5</td><td>Apex Print</td><td class="num">$1,240.00</td><td>Marketing</td><td><span class="s-chip" style="--cc:var(--c-ok)">Categorized</span></td></tr>
+            <tr><td>Oct 5</td><td>Brightway Travel</td><td class="num">$860.50</td><td>Travel</td><td><span class="s-chip" style="--cc:var(--c-travel)">Receipt needed</span></td></tr>
+            <tr><td>Oct 6</td><td>Cloudline Software</td><td class="num">$149.00</td><td>Software</td><td><span class="s-chip" style="--cc:var(--c-ok)">Categorized</span></td></tr>
+            <tr><td>Oct 6</td><td>Harbor Office Supply</td><td class="num">$312.75</td><td>Office supplies</td><td><span class="s-chip" style="--cc:var(--c-ok)">Categorized</span></td></tr>
+            <tr><td>Oct 7</td><td>Apex Print</td><td class="num">$1,240.00</td><td>Marketing</td><td><span class="s-chip" style="--cc:var(--c-meal)">Possible duplicate</span></td></tr>
+            <tr><td>Oct 7</td><td>City Utilities</td><td class="num">$426.30</td><td>Utilities</td><td><span class="s-chip" style="--cc:var(--c-ok)">Categorized</span></td></tr>
+          </tbody></table></div>
+        <div class="s-sop">
+          <div><h4 class="s-sub" style="margin:0 0 8px">Invoice entry</h4>
+          <dl class="s-kv"><dt>Vendor</dt><dd>Apex Print</dd><dt>Invoice no.</dt><dd>1048</dd><dt>Invoice date</dt><dd>Oct 5, 2026</dd><dt>Due date</dt><dd>Nov 4, 2026</dd><dt>Amount</dt><dd>$1,240.00</dd><dt>Category</dt><dd>Marketing</dd></dl></div>
+          <div><h4 class="s-sub" style="margin:0 0 8px">My checks</h4>
+          <ul class="s-list"><li>Match each bank item to an invoice or receipt.</li><li>Use the same category for the same type of expense.</li><li>Flag duplicates, missing receipts and unusual amounts.</li><li>Send the client a short list of open items.</li></ul></div>
+        </div>
+      </div>
+    </article>
+
+
+  </div>
+</section>
+
 <section style="padding-block:0">
   <div class="banner rv">
     <h2>If I don't know a tool yet, I'll master it.</h2>
@@ -443,7 +695,7 @@ form .btn{justify-self:start;margin:0}
 
 <footer class="foot"><div class="in">
   <a class="logo" href="#home"><i>G</i>Glouel</a>
-  <ul><li><a href="#home">Home</a></li><li><a href="#about">About</a></li><li><a href="#education">Education</a></li><li><a href="#experience">Experience</a></li><li><a href="#tools">Tools</a></li><li><a href="#services">Services</a></li><li><a href="#contact">Contact</a></li></ul>
+  <ul><li><a href="#home">Home</a></li><li><a href="#about">About</a></li><li><a href="#education">Education</a></li><li><a href="#experience">Experience</a></li><li><a href="#samples">Samples</a></li><li><a href="#tools">Tools</a></li><li><a href="#services">Services</a></li><li><a href="#contact">Contact</a></li></ul>
   <small>© 2026 Glouel Dee Estrella</small>
 </div></footer>
 
@@ -470,9 +722,9 @@ const SV=[
  ['Microsoft 365','Word, Excel and Outlook workflows, templates and trackers built to last.','l-window',1,7,3,''],
  ['Salesforce','Clean leads, contacts and opportunities, with every activity logged.','l-contact',1,10,3,'lav'],
  ['Google Workspace','Gmail, Calendar, Drive and Sheets organized so teams stay in sync.','l-cloud',2,1,3,''],
- ['Project Management Tools','Boards, recurring tasks and docs set up across Asana, Trello and Monday.','l-kanban',2,4,4,'lav'],
- ['Operational Coordination','Tracking status, chasing open items and keeping every project moving.','l-flow',2,8,3,'mint'],
- ['Spreadsheet Management','Excel and Sheets trackers for payables, receivables and reporting.','l-table',2,11,2,''],
+ ['Project Management Tools','Boards, recurring tasks and docs set up across Asana, Trello and Monday.','l-kanban',2,4,3,'lav'],
+ ['Operational Coordination','Tracking status, chasing open items and keeping every project moving.','l-flow',2,7,3,'mint'],
+ ['Spreadsheet Management','Excel and Sheets trackers for payables, receivables and reporting.','l-table',2,10,3,''],
  ['QuickBooks','Invoice entry, expense categories and transaction checks done right.','l-receipt',3,1,3,'mint'],
  ['Research & Ad Hoc Projects','Vendors, pricing and providers researched, compared and summarized for decisions.','l-search',3,4,5,''],
  ['Personal Concierge','Appointments, reservations and travel research arranged without the back-and-forth.','l-bell',3,9,4,'lav']
@@ -496,6 +748,53 @@ cm.addEventListener('click',async()=>{
   catch(e){const r=document.createRange();r.selectNodeContents(document.getElementById('mail'));const sel=getSelection();sel.removeAllRanges();sel.addRange(r);lab.textContent='Selected'}
   setTimeout(()=>lab.textContent='Copy',1800);
 });
+
+(function(){
+  var H=48,START=8,END=18,DAYS=["Mon","Tue","Wed","Thu","Fri"],FULL=["Monday","Tuesday","Wednesday","Thursday","Friday"];
+  var SRC={call:"phone call",msg:"text message",mail:"email"};
+  // [day,start,end,title,source,added,reminders]
+  var EV=[
+    [0,9,10,"Ops team sync","msg","Added Friday from his text",["1 day before","15 minutes before"]],
+    [0,13,14.5,"Lunch: Brightway","call","Added Thursday after his call",["1 day before","1 hour before"]],
+    [1,10,11,"Vendor call: Apex","mail","Added Monday from his email",["1 hour before"]],
+    [1,14,15,"Budget review","call","Added Monday after his call",["1 day before","30 minutes before"]],
+    [2,9,12,"Warehouse site visit","call","Added last Friday after his call",["2 days before","2 hours before (travel time)"]],
+    [2,14,15,"1:1 with Marcus","msg","Added Tuesday from his text",["15 minutes before"]],
+    [3,10,11,"Q4 contracts review","msg","Added Tuesday from his text",["1 day before","30 minutes before"]],
+    [3,15,16,"Interview: analyst","mail","Added Wednesday from his email",["1 day before","1 hour before"]],
+    [4,9,10,"Week review","call","Added Wednesday after his call",["1 hour before"]],
+    [4,11.5,12.5,"Supply Chain Summit","mail","Added Monday from his email",["1 day before","30 minutes before"]]
+  ];
+  var cal=document.getElementById("sCal");if(!cal)return;
+  var dT=document.getElementById("sdTitle"),dTime=document.getElementById("sdTime"),dAdd=document.getElementById("sdAdded"),dRem=document.getElementById("sdRem");
+  function fmt(h){var hh=Math.floor(h),mm=Math.round((h-hh)*60);return hh+":"+(mm<10?"0":"")+mm}
+  var corner=document.createElement("div");corner.className="s-ch";cal.appendChild(corner);
+  DAYS.forEach(function(d){var x=document.createElement("div");x.className="s-ch";x.textContent=d;cal.appendChild(x)});
+  var hours=document.createElement("div");hours.className="s-hours";
+  for(var t=START;t<END;t++){var s=document.createElement("span");s.style.top=((t-START)*H)+"px";s.textContent=t+":00";hours.appendChild(s)}
+  cal.appendChild(hours);
+  var cols=DAYS.map(function(){var c=document.createElement("div");c.className="s-day";cal.appendChild(c);return c});
+  var btns=[];
+  function select(i){
+    var e=EV[i];
+    btns.forEach(function(b,k){b.setAttribute("aria-pressed",k===i?"true":"false")});
+    dT.textContent=e[3];
+    dTime.textContent=FULL[e[0]]+", "+fmt(e[1])+" to "+fmt(e[2]);
+    dAdd.textContent=e[5]+" ("+SRC[e[4]]+")";
+    dRem.innerHTML="";
+    e[6].forEach(function(r){var li=document.createElement("li");li.innerHTML='<svg aria-hidden="true"><use href="#l-bell"/></svg>';li.appendChild(document.createTextNode(r));dRem.appendChild(li)});
+  }
+  EV.forEach(function(e,i){
+    var el=document.createElement("button");el.type="button";el.className="s-ev "+e[4];
+    el.style.top=((e[1]-START)*H+1)+"px";el.style.height=((e[2]-e[1])*H-2)+"px";
+    var b=document.createElement("b");b.textContent=e[3];el.appendChild(b);
+    var sm=document.createElement("small");sm.textContent=fmt(e[1])+" to "+fmt(e[2]);el.appendChild(sm);
+    el.setAttribute("aria-label",e[3]+", "+FULL[e[0]]+" "+fmt(e[1])+" to "+fmt(e[2]));
+    el.addEventListener("click",function(){select(i)});
+    cols[e[0]].appendChild(el);btns.push(el);
+  });
+  select(4);
+})();
 </script>
 
 </body>
